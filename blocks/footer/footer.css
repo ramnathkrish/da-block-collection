@@ -4,9 +4,7 @@ footer {
 }
 
 footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+  margin: auto; 
 }
 
 footer .footer p {
@@ -15,6 +13,148 @@ footer .footer p {
 
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: 0px;
   }
+}
+footer a:any-link, li {
+  text-decoration: none
+ }
+
+ .footer-block  li a:hover, .li a:focus, .li a:active{
+
+  text-decoration: none;
+ }
+
+footer .block-content li a:hover::after, .li a:focus::after, .li a:active::after {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+ footer .block-content  li a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: .3s ease transform;
+    transition: .3s ease transform;
+  
+}
+
+.columns.block-content  .icon-kaiser img{
+      width: 291px;
+    height: 40px;
+}
+
+.columns.block-content > div > div:first-child{
+    min-width: 30%;
+    background-color: #003b71;
+    padding: 3.125rem 2rem;
+}
+@media (width < 900px) {
+.columns.block-content > div > div:not(:first-child){
+     padding: 2rem;
+ }  
+}
+
+.columns.block-content > div >  div:nth-child(2) {
+position: relative;
+  top: -26px;
+  
+}
+.columns.block-content > div >  div:nth-child(3) {
+position: relative;
+    top: -12px;
+}
+.columns.block-content > div > div:first-child h3{
+    position: relative;
+    font-weight: 500;
+    letter-spacing: .01em;
+    padding-right: .75rem;
+    line-height: 28px;
+    letter-spacing: .01em;
+    font-size: 20px;
+    margin-top: 80px;
+}
+
+.columns.block-content > div > div:first-child h3:before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #006ba6;
+}
+.columns.block-content > div > div:last-child {
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+    flex: unset;
+  position: relative;
+}
+
+.columns.block-content > div > div:last-child:before {
+        content: '';
+        position: absolute;
+        left: -60px;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background-color: #003b71;
+        margin: unset;
+    }
+
+.columns.block-content > div > div  h4{
+      font-size: 26px;
+    font-weight: 500;
+    letter-spacing: .01em;
+          margin: 0 0 1.25rem;
+        line-height: 32px;
+}
+
+.footer-block{
+     margin-left: 30px;
+    padding: 1.875rem;
+}
+
+.footer-block li , .footer-block a{
+ 
+    position: relative;
+    font-size: .875rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-right: 2.5rem;
+    white-space: nowrap;
+      color: #fff;
+}
+
+ .icon-facebook, .icon-youtube, .icon-twitter, .icon-feed, .icon-instagram, .icon-pintrest, .icon-linkedin{
+           margin-right: 2rem;
+        margin-bottom: 1.25rem;
+        margin-left: 0;
+   
+ }
+
+.footer-block a:hover{
+   text-decoration: none;
+}
+
+.footer-block ul{
+  display: flex;
+}
+@media (width < 900px) {
+  .footer-block ul{
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+footer .section.background-dark-blue {
+    background-color: #01203d;
+    color: #fff;
 }

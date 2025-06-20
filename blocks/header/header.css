@@ -1,10 +1,12 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
-  width: 100%;
-  z-index: 2;
-  position: fixed;
+ background-color: var(--background-color);
+    width: 100%;
+    z-index: 999;
+    position: fixed;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
+
 
 header nav {
   box-sizing: border-box;
@@ -40,15 +42,15 @@ header nav[aria-expanded='true'] {
   }
 
   header nav[aria-expanded='true'] {
-    min-height: 0;
-    overflow: visible;
+   min-height: 89px;
+   overflow: visible;
+   padding: 14px 32px;
   }
 }
 
 header nav p {
   margin: 0;
-  
-  /* line-height: 1; BOILERPLATE DOESN'T HAVE a P tag in header, */
+  line-height: 1;
 }
 
 header nav a:any-link {
@@ -139,8 +141,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
 /* brand */
 header .nav-brand {
   grid-area: brand;
-  flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
+  font-size: var(--heading-font-size-xs);
   font-weight: 700;
   line-height: 1;
 }
@@ -168,6 +169,7 @@ header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
   font-size: var(--body-font-size-s);
+   padding-bottom: 10px;
 }
 
 header nav .nav-sections ul > li {
@@ -195,25 +197,32 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections .nav-drop {
     position: relative;
-    padding-right: 16px;
     cursor: pointer;
   }
 
-  header nav .nav-sections .nav-drop::after {
+  header nav .nav-sections ul:first-child .nav-drop .icon-location::before {
+    border-style: solid;
+    border-width: 2px 2px 0 0;
+    border-color: #006ba6;
     content: '';
     display: inline-block;
+    height: 8px;
     position: absolute;
-    top: 0.5em;
-    right: 2px;
+    vertical-align: top;
+    width: 8px;
+    top: 5px;
+    right:1px;
+    -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
-    width: 6px;
-    height: 6px;
-    border: 2px solid currentcolor;
-    border-radius: 0 1px 0 0;
-    border-width: 2px 2px 0 0;
+
   }
 
-  header nav .nav-sections .nav-drop[aria-expanded='true']::after {
+   header nav .nav-sections ul:first-child .nav-drop .icon-location img{
+    left:18px;
+    margin-left:8px
+   }
+
+  header nav .nav-sections  ul:first-child .nav-drop[aria-expanded='true'] .icon-location::before {
     top: unset;
     bottom: 0.5em;
     transform: rotate(315deg);
@@ -221,8 +230,7 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections ul {
     display: flex;
-    align-items: center;
-    gap: 24px;
+    gap: 40px;
     margin: 0;
   }
 
@@ -243,10 +251,16 @@ header nav .nav-sections ul > li > ul > li {
     width: 200px;
     top: 150%;
     padding: 16px;
-    background-color: var(--light-color);
+    background-color: #0078b3;
+    color: #fff;
     white-space: initial;
-    z-index: 1;
+   z-index: 9;
   }
+
+ header nav .nav-sections .default-content-wrapper > ul:first-child > li[aria-expanded='true'] > ul {
+  background-color: #fff;
+  color: var(--text-color);
+ }
 
   header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
     content: '';
@@ -260,6 +274,18 @@ header nav .nav-sections ul > li > ul > li {
     border-bottom: 8px solid var(--light-color);
   }
 
+  header nav .nav-sections .default-content-wrapper > ul > li > ul::after {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgb(0, 120, 179);
+    transform: scaleX(0);
+    transform-origin: center center;
+    transition: transform 0.4s;
+}
+
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
     padding: 8px 0;
   }
@@ -270,55 +296,100 @@ header nav .nav-tools {
   grid-area: tools;
 }
 
-header nav .nav-tools .button {
-  margin: 0;
-  border: none;
-  padding: 0.5em;
-  background: none;
-  line-height: 0;
+
+header nav .top-navigation .default-content-wrapper{
+float: right;    
+}
+header nav .top-navigation .default-content-wrapper > ul:last-child{
+justify-content: flex-end;
+}
+header nav .top-navigation .default-content-wrapper > ul:last-child   li {
+font-weight: 600;  
+ font-size: 1.125rem; 
+ 
 }
 
-/* breadcrumbs */
-header .breadcrumbs {
-  display: none;
-  margin: auto;
-  max-width: 1248px;
-  height: var(--breadcrumbs-height);
-  padding: 0 24px;
-  font-size: var(--body-font-size-xs);
-  overflow: hidden;
+header nav .top-navigation .default-content-wrapper > ul:last-child  > li[aria-expanded='true'] > ul  a:any-link {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 1.22222;
+    line-height: 24px;
+    display: inline-block;
 }
 
-header .breadcrumbs ol {
-  display: flex;
-  flex-flow: wrap;
-  list-style: none;
-  padding: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-  gap: 1ch;
+header nav .top-navigation .default-content-wrapper > ul:first-child  a:any-link, li {
+font-size: 14px; 
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
-header .breadcrumbs ol li {
-  padding: 0;
-  color: var(--dark-color);
+header nav .top-navigation .default-content-wrapper > ul:first-child  li img {
+top: 3px;
+ left: 3px;
+position: relative;
 }
 
-header .breadcrumbs ol li:not(:last-child)::after {
-  content: '/';
-  padding-left: 1ch;
+header nav .top-navigation .default-content-wrapper > ul:first-child li  {
+margin-top: 8px;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
-header .breadcrumbs ol li[aria-current] {
-  color: var(--text-color);
+
+header nav .nav-brand .icon-logo img {
+    width: 402px;
 }
 
-@media (width >= 900px) {
-  header .breadcrumbs {
+ header nav .top-navigation li a:any-link, li {
+  text-decoration: none
+ }
+
+header nav .top-navigation li.nav-drop:hover:after, li.nav-drop:focus:after, li.nav-drop:active:after {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+ header nav .top-navigation  li.nav-drop:after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        bottom: -6px;
+        left: 0;
+        background-color: #0078b3;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transform-origin: center;
+        transform-origin: center;
+        -webkit-transition: .4s ease transform;
+        transition: .4s ease transform;
+  
+}
+header nav .top-navigation li.nav-drop[aria-expanded='true'] ul li a::after {
+  background-color: #fff;
+}
+ header nav  .icon{
+    height: 16px;
+    width: 16px;
+ }
+
+header nav .top-navigation .dropDown a:after {
+    content: '';
+    position: relative;
     display: block;
-    max-width: 1264px;
-    padding: 0 32px;
-  }
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-transition: .4s ease transform;
+    transition: .4s ease transform;
 }
+
+header nav .top-navigation .dropDown a:hover:after {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+

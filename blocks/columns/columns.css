@@ -31,3 +31,189 @@
     order: unset;
   }
 }
+
+.section.background-blue.columns-container {
+background-color: #002b52;
+  color: #fff;  
+  
+}
+.columns.block-content {
+        padding: 0;
+}
+
+.columns.block-content li, ul{
+      list-style-type: none;
+      padding-left: 0;
+}
+.columns.block-content ul li{
+     margin-bottom: 0.625rem;
+}
+.columns.block-content img{
+  width: 20px;
+  height: 20px;
+}
+
+.columns.block-content a:any-link {
+  color: #fff;
+  font-weight: 500;
+  position: relative;
+}
+
+
+
+.flex-block img{
+  object-fit: cover;
+  transform: scale(1.1);
+  height: 380px;
+}
+
+.flex-block.columns  > div > div:hover img, .flex-block.columns  > div > div:focus img{
+
+  transform: scale(1);
+}
+
+.flex-block .icon-right img{
+ width: 24px;
+height: 24px;
+top: -48px;
+position: relative;
+left: 304px;
+display: block;
+}
+
+
+.flex-block.columns > div {
+    gap: 0;
+    margin-left: -.9375rem;
+    margin-right: -.9375rem;
+}
+.flex-block.columns > div > div {
+    margin-left: .9375rem;
+    margin-right: .9375rem;
+    position: relative;
+    cursor: pointer;
+}
+@media (width >= 700px) {
+.flex-block.columns > div > div {
+    width: calc(33.33333% - 1.875rem);
+  
+ }
+
+.flex-block.columns > div  {
+    
+    align-items: center;
+    flex-direction: unset;
+ }
+}
+
+ 
+.flex-block.columns > div > div .border{  
+   position: absolute;
+   max-height: 358px;
+    width: calc(100% - 24px);
+    height: calc(100% - 24px);
+    top: 39px;
+    left: 8px;
+    z-index: 50;
+}
+
+.flex-block.columns > div > div .border::after {
+    bottom: 0px;
+    left: 0px;
+    padding-right: 5px;
+    border-bottom: 4px solid white;
+    border-right: 4px solid white;
+
+}
+
+.flex-block.columns > div > div .border:before {
+    top: -6px;
+    right: -9px;
+    border-left: 4px solid white;
+    border-top: 4px solid white;
+    padding-left: 5px;
+} 
+
+.flex-block.columns > div > div .border::before,.flex-block.columns > div > div .border::after {
+    content: "";
+    position: absolute;
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
+}
+
+.flex-block.columns  > div > div:hover .border::before, .flex-block.columns > div > div:focus .border::before {
+    animation: 0.8s ease-in-out 0.8s 1 normal forwards running borderDraw;
+}
+
+.flex-block.columns > div > div:hover .border::before, .flex-block.columns  > div > div:focus .border::before {
+    -webkit-animation: borderDraw .8s ease-in-out forwards;
+    animation: borderDraw .8s ease-in-out forwards;
+    -webkit-animation-delay: .8s;
+    animation-delay: .8s;
+}
+
+.flex-block.columns > div > div:hover .border::after, .flex-block.columns  > div > div:focus .border::after {
+    -webkit-animation: borderDraw .8s ease-in-out forwards;
+    animation: borderDraw .8s ease-in-out forwards;
+}
+
+.flex-block.columns > div > div:hover p:after,.flex-block.columns  > div > div:focus p:after {
+    -webkit-animation: tile-icon ease-in-out 1;
+    animation: tile-icon ease-in-out 1;
+    -webkit-animation-duration: unset;
+    animation-duration: unset
+}
+
+
+
+.flex-block.columns > div > div > p::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+.flex-block.columns > div > div > p{
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    background-color: #003b71;
+    max-height: 380px;
+}
+
+
+
+ .flex-block.columns h3 a{
+   font-size: 1.625rem;
+    letter-spacing: -0.01em;
+    line-height: 32px;
+    color: white;
+    position: absolute;
+    margin: 0;
+    z-index: 1;
+    padding: 32px;
+}
+
+.flex-block.columns h3 a:hover , .flex-block.columns h3 a:focus {
+   text-decoration: none;
+}
+
+
+
+@keyframes borderDraw  {
+ 
+  100% {
+    visibility: visible;
+    height: 100%;
+    width: 100%;
+    padding-top: 0px;
+  }
+    
+}
+
+

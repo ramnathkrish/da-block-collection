@@ -1,0 +1,53 @@
+main > .breadcrumb-container {
+  padding: 10px;
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.blog main div.breadcrumb-container {
+  padding: 10px;
+}
+main > .breadcrumb-container{
+  margin:0;
+}
+
+main > div{
+  margin:0px;
+}
+
+@media (min-width: 900px) {
+  main .breadcrumb-container {
+    grid-row: 1;
+    grid-column: 1 / span 2;
+  }
+}
+
+.breadcrumb > nav {
+  color: #0d1c3d;;
+  font-size: var(--body-font-size-xs);
+  padding-left: 10px;
+  min-height: 26px;
+}
+
+.breadcrumb > nav a {
+  text-decoration: none;
+  color: #0074ad;
+  -webkit-transition: color .2s ease-in-out;
+  transition: color .2s ease-in-out;
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+
+}
+
+.breadcrumb > nav a:hover, .breadcrumb > nav a:focus{
+  color: #003b71;
+  text-decoration: underline;
+}
+
+.breadcrumb .breadcrumb-separator {
+  margin-inline: 1.5ch;
+}
+
+

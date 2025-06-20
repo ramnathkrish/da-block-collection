@@ -12,9 +12,7 @@ export default function decorate(block) {
     });
     ul.append(li);
   });
-
-  // replace images with optimized versions
   ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
-
-  block.replaceChildren(ul);
+  block.textContent = '';
+  block.append(ul);
 }
