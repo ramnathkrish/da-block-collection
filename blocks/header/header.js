@@ -1,5 +1,4 @@
-import { getMetadata } from '../../scripts/aem.js';
-import { fetchPlaceholders } from '../../scripts/placeholders.js';
+import { fetchPlaceholders, getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
@@ -115,7 +114,7 @@ function getDirectTextContent(menuItem) {
     .join(' ');
 }
 
-/*async function buildBreadcrumbsFromNavTree(nav, currentUrl) {
+async function buildBreadcrumbsFromNavTree(nav, currentUrl) {
   const crumbs = [];
 
   const homeUrl = document.querySelector('.nav-brand a[href]').href;
@@ -144,9 +143,9 @@ function getDirectTextContent(menuItem) {
   return crumbs;
 }
 
-/*8async function buildBreadcrumbs() {
+async function buildBreadcrumbs() {
   const breadcrumbs = document.createElement('nav');
-    breadcrumbs.className = 'breadcrumbs';
+  breadcrumbs.className = 'breadcrumbs';
 
   const crumbs = await buildBreadcrumbsFromNavTree(document.querySelector('.nav-sections'), document.location.href);
 
@@ -168,7 +167,7 @@ function getDirectTextContent(menuItem) {
   breadcrumbs.append(ol);
   return breadcrumbs;
 }
-*/
+
 /**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -199,29 +198,16 @@ export default async function decorate(block) {
   }
 
   const navSections = nav.querySelector('.nav-sections');
-  
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');    
-      navSection.addEventListener('mouseover', () => {
+      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+      navSection.addEventListener('click', () => {
         if (isDesktop.matches) {
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
           toggleAllNavSections(navSections);
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
         }
       });
-       if (navSection.querySelector('ul')){
-         const dropDown = navSection.querySelector('ul');
-         dropDown.classList.add('dropDown')
-           dropDown.addEventListener('mouseover', () => {
-        if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
-      });
-       }
-      
     });
   }
 
@@ -252,6 +238,6 @@ export default async function decorate(block) {
   block.append(navWrapper);
 
   if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
-    
+    navWrapper.append(await buildBreadcrumbs());
   }
 }
